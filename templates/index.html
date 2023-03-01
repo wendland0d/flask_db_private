@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>Flask DB</title>
+    </head>
+    <body>
+        <form method="POST" action="/search">
+            <input class='search_query' name="search_query" placeholder="Запрос">
+            <input type="submit" value="Поиск">
+        </form>
+        <form method="POST" action="/delete">
+            <input type='submit' value="Удалить выбранные">
+            <table border="1" width="100%" cellpadding="5">
+                {% for post in posts %}
+                    <tr>
+                        <td>{{ post['id'] }}</td>
+                        <td>{{ post['created_date'] }}</td>
+                        <td>{{ post['text'] }}</td>
+                        <td>{{ post['rubrics'] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </form>
+
+
+    </body>
+</html>
